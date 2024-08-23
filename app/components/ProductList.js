@@ -98,7 +98,7 @@ export default function ProductList() {
           {products.map((product) => (
             <article 
             key={product.id} 
-            className="product-card border rounded-md overflow-hidden border-gray-950 hover:shadow-xl transition-shadow"
+            className="product-card border rounded-md overflow-hidden border-gray-950 bg-white hover:shadow-xl transition-shadow"
           >
             <figure
               onMouseEnter={() => setHoveredId(product.id)}
