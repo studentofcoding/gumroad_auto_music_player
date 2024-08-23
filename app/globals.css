@@ -2,28 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 44%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #f4f4f0;
+  font-size: 16px;
+  z-index: 99999;
+  line-height: 1.5 !important;
+  font-family: 'Inter var', sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+@media (min-width: 1024px) {
+  body > main > * {
+      padding: 4rem max((100% - 71.25rem) / 2, 4rem);
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+@layer components {
+  .product-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: border-color 500ms ease-in-out;
+  }
+}
+
+article.product-card header {
+  padding: 1rem;
+  border-bottom: solid .0625rem black;
+  border-top: solid .0625rem black;
+}
+
+article.product-card:hover {
+  box-shadow: .25rem .25rem 0rem black;
 }
 
 @layer utilities {
